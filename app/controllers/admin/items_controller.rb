@@ -1,6 +1,7 @@
 class Admin::ItemsController < ApplicationController
   def new
     @item = Item.new
+    @genres = Genre.all
   end
 
   def create
@@ -13,9 +14,20 @@ class Admin::ItemsController < ApplicationController
     @items = Item.all
   end
 
+  def show
+    @item = Item.find(params[:id])
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+  end
+
   private
   def item_params
-    params.require(:item).permit(:name, :introduction)
+    params.require(:item).permit(:image, :name, :introduction, :price, :is_active)
   end
 
 end
