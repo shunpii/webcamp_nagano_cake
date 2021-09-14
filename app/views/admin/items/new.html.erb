@@ -1,8 +1,8 @@
 <h1>商品新規登録</h1>
 <%= form_with model:@item, url: admin_items_path, local:true do |f| %>
   <div class="field">
-    <%= f.label :image, "商品画像" %>
-  　<%= f.attachment_field :image %>
+    <%= f.label :image_id, "商品画像" %>
+  　<%= f.attachment_field :image_id %>
   </div>
   <div class="field">
     <%= f.label :name, "商品名" %>
@@ -13,8 +13,8 @@
     <%= f.text_area :introduction, placeholder: "ここに説明文を記述します" %>
   </div>
   <div class="field">
-    <%= f.label :genre, "ジャンル" %>
-    <%= f.select :genre, @genres.map{ |genre| [genre.name, genre.id]}, {include_blank: '--選択してください--'} %>
+    <%= f.label :genre_id, "ジャンル" %>
+    <%= f.select :genre_id, @genres.map{ |genre| [genre.name, genre.id]}, {include_blank: '--選択してください--'} %>
   </div>
   <div class="field">
     <%= f.label :price, "税込価格" %>

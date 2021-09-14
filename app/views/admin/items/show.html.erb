@@ -1,14 +1,12 @@
 <h2>商品詳細</h2>
-<% @item.each do |item| %>
-  <%= attachment_image_tag item, :image, :fill, 50, 50, format: 'jpeg' %>
-  <p>商品名</p>
-  <%= item.name %>
-  <p>商品説明</p>
-  <%= item.introduction %>
-  <p>ジャンル</p>
-  <%= item.genre %>
-  <p>税込価格</p>
-  <%= item.price %>
-  <p>販売ステータス</p>
-  <%= item.is_active %>
-<% end %>
+<%= attachment_image_tag @item, :image_id %>
+<p>商品名</p>
+<%= @item.name %>
+<p>商品説明</p>
+<%= @item.introduction %>
+<p>ジャンル</p>
+<%= @item.genre_id %>
+<p>税込価格</p>
+<%= @item.price %>
+<p>販売ステータス</p>
+<%= @item.is_active %>
