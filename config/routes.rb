@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :admin_users, :controllers => {
-    :sessions => 'admin_users/sessions',
-    :passwords => 'admin_users/passwords',
-    :registrations => 'admin_users/registrations'
-  }
+  namespace :admin do
+    get 'homes/top'
+  end
+  devise_for :admin_users, module: "admin_users"
   namespace :admin do
     resources :items, only:[:new, :index, :show, :edit, :create, :update]
     resources :genres, only:[:index, :create, :edit, :update]
