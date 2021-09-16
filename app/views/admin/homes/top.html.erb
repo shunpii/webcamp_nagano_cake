@@ -9,10 +9,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
+    <%= @orders.each do |order| %>
+      <tr>
+        <td><%= order.datetime %></td>
+        <td><%= order.name %></td>
+        <td><%= order.amount %></td>
+        <td><%= order.status.name %></td>
+      </tr>
+    <% end %>
   </tbody>
+  <%= paginate @orders %>
