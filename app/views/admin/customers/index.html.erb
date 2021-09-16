@@ -11,10 +11,16 @@
   <tbody>
     <tr>
       <% @customers.each do |customer| %>
-        <td><%= customers.id %></td>
-        <td><%= customers.name %></td>
-        <td><%= customers.email %></td>
-        <td><%= customers.is_deleted %></td>
+        <td><%= customer.id %></td>
+        <td><%= link_to customer.name, admin_customer_path(@customer) %></td>
+        <td><%= customer.email %></td>
+        <td>
+          <% if customer.is_deleted %>
+            有効
+          <% else %>
+            無効
+          <% end %>
+        </td>
       <% end %>
     </tr>
   </tbody>
