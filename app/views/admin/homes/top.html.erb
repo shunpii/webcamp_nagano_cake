@@ -9,7 +9,7 @@
     </tr>
   </thead>
   <tbody>
-    <%= @orders.each do |order| %>
+    <% @orders.each do |order| %>
       <tr>
         <td><%= order.datetime %></td>
         <td><%= order.name %></td>
