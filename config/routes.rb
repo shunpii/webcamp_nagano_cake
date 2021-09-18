@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   namespace :public do
     get 'homes/top'
     get 'homes/about'
+    get 'customers/confirm'
+    patch 'customers/withdrawal'
+    resources :customers, only:[:show, :edit, :update]
   end
   namespace :admin do
     get 'orders/show'
