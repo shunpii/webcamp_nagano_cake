@@ -6,17 +6,16 @@ Rails.application.routes.draw do
     get 'customers/confirm'
     patch 'customers/withdrawal'
     resources :customers, only:[:show, :edit, :update]
+    resources :addresses, only:[:index, :edit, :create, :update, :destroy]
   end
-  namespace :admin do
-    get 'orders/show'
-  end
+
   devise_for :admin_users, module: "admin_users"
   namespace :admin do
     get 'homes/top'
     resources :items, only:[:new, :index, :show, :edit, :create, :update]
     resources :genres, only:[:index, :create, :edit, :update]
     resources :customers, only:[:index, :show, :edit, :update]
-    resources :order, only:[:show, :update]
+    resources :orders, only:[:show, :update]
     resources :order_details, only:[:update]
   end
 
