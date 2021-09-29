@@ -1,18 +1,15 @@
 class Admin::CustomersController < ApplicationController
   def index
     @customers = Customer.page(params[:page])
-    @customer = Customer.find(params[:id])
   end
 
   def show
     @customer = Customer.find(params[:id])
-    @order = @customer.order
   end
 
   def edit
     @customer = Customer.find(params[:id])
     @customer.save
-    redirect_to
   end
 
   def update

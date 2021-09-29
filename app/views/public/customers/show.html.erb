@@ -1,7 +1,8 @@
+<p></p>
 <h2>マイページ</h2>
 
 <h3>登録情報</h3>
-<%= link_to "編集する" %>
+<%= link_to "編集する", edit_public_customer_path(@customer.id) %>
 
 <table>
   <thead>
@@ -39,7 +40,7 @@
 </table>
 
 <h3>配送先</h3>
-<%= link_to "一覧を見る" %>
+<%= link_to "一覧を見る", public_addresses_path %>
 
 <h3>注文履歴</h3>
-<%= link_to "一覧を見る" %>
+<%= link_to "一覧を見る",  public_orders_path %>

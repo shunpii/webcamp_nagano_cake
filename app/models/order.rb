@@ -1,4 +1,7 @@
 class Order < ApplicationRecord
+  belongs_to :customer
+  has_many :order_details
+
   enum status: {
     入金待ち: '入金待ち',
     入金確認: '入金確認',
@@ -8,7 +11,13 @@ class Order < ApplicationRecord
   }
 
   enum payment_method: {
-    クレジットカード: 'クレジットカード',
-    銀行振込: '銀行振込'
+    credit_card: 0,
+    bunk: 1
+  }
+
+  enum address: {
+    customer_address: 0,
+    addresses: 1,
+    new_address: 2
   }
 end

@@ -1,15 +1,30 @@
 Rails.application.routes.draw do
-  devise_for :public_users, module: "public_users"
+
+  devise_for :admins, path: 'admin', controllers: {
+    sessions: "admin/sessions",
+    registrations: "admin/registrations"
+  }
+
+  devise_for :customers, path: 'customers', controllers: {
+    sessions: "public/sessions",
+    registrations: "public/registrations"
+  }
+
   namespace :public do
     get 'homes/top'
     get 'homes/about'
     get 'customers/confirm'
+    get 'orders/complete'
+    get 'orders/confirm'
     patch 'customers/withdrawal'
+    delete 'cart_items/destroy_all'
     resources :customers, only:[:show, :edit, :update]
     resources :addresses, only:[:index, :edit, :create, :update, :destroy]
+    resources :items, only:[:index, :show]
+    resources :cart_items, only:[:index, :update, :create, :destroy]
+    resources :orders, only:[:new, :show, :index, :create]
   end
 
-  devise_for :admin_users, module: "admin_users"
   namespace :admin do
     get 'homes/top'
     resources :items, only:[:new, :index, :show, :edit, :create, :update]

@@ -1,38 +1,47 @@
-<h2>商品新規登録</h2>
-<%= form_with model:@item, url: admin_items_path, local:true do |f| %>
-  <table>
-    <thead>
-      <tr>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>商品画像</td>
-        <td><%= f.attachment_field :image %></td>
-      </tr>
-      <tr>
-        <td>商品名</td>
-        <td><%= f.text_field :name, placeholder: "商品名" %></td>
-      </tr>
-      <tr>
-        <td>商品説明</td>
-        <td><%= f.text_area :introduction, placeholder: "ここに説明文を記述します" %></td>
-      </tr>
-      <tr>
-        <td>ジャンル</td>
-        <td><%= f.select :genre_id, @genres.map{ |genre| [genre.name, genre.id]}, {include_blank: '--選択してください--'} %></td>
-      </tr>
-      <tr>
-        <td>税込価格</td>
-        <td><%= f.text_field :price, placeholder: "0" %>円</td>
-      </tr>
-      <tr>
-        <td>販売ステータス</td>
-        <td><%= f.radio_button :is_active, :販売中 %>販売中<%= f.radio_button :is_active, :販売停止中 %>販売停止中</td>
-      </tr>
-    </tbody>
-  </table>
-  <%= f.submit '新規登録' %>
-<% end %>
+<p></p>
+<div class="container">
+  <div class="row">
+    <h2 class="col-md-4">商品新規登録</h2>
+    <div class="col-md-8"></div>
+  </div>
+  <div align="center">
+    <%= form_with model:@item, url: admin_items_path, local:true do |f| %>
+      <table>
+       <thead>
+          <tr>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>商品画像</td>
+            <td><%= f.attachment_field :image %></td>
+          </tr>
+          <tr>
+            <td>商品名</td>
+            <td><%= f.text_field :name, placeholder: "商品名" %></td>
+          </tr>
+          <tr>
+            <td>商品説明</td>
+            <td><%= f.text_area :introduction, placeholder: "ここに説明文を記述します" %></td>
+          </tr>
+          <tr>
+            <td>ジャンル</td>
+            <td><%= f.select :genre_id, @genres.map{ |genre| [genre.name, genre.id]}, {include_blank: '--選択してください--'} %></td>
+          </tr>
+          <tr>
+            <td>税込価格</td>
+            <td><%= f.text_field :price, placeholder: "0" %>円</td>
+          </tr>
+          <tr>
+            <td>販売ステータス</td>
+            <td><%= f.radio_button :is_active, :販売中 %>販売中<%= f.radio_button :is_active, :販売停止中 %>販売停止中</td>
+          </tr>
+        </tbody>
+      </table>
+      <%= f.submit '新規登録', class: "new" %>
+    <% end %>
+  </div>
+</div>
+

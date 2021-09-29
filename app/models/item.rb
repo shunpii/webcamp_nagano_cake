@@ -1,8 +1,6 @@
 class Item < ApplicationRecord
-  enum is_active: {
-    販売中: '販売中',
-    販売停止中: '販売停止中'
-  }
   belongs_to :genre
+  has_many :cart_items
+  has_many :order_details
   attachment :image
 end

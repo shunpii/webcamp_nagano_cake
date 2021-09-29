@@ -1,0 +1,32 @@
+<p></p>
+<div class="container">
+  <div class="row">
+    <h2 class="col-md-4">管理者ログイン</h2>
+    <div class="col-md-8"></div>
+  </div>
+</div>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <table align="center" >
+    <thead>
+      <tr>
+        <th></th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>メールアドレス</td>
+        <td><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@axample.com", size: "50x20" %></td>
+      </tr>
+      <tr>
+        <td>パスワード</td>
+        <td><%= f.password_field :password, autocomplete: "current-password", size: "50x20" %></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><%= f.submit "ログイン" %></td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>

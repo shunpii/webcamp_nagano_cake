@@ -1,6 +1,13 @@
-<h2>配送先登録／一覧</h2>
+<p></p>
+<div class="container">
+  <div class="row">
+    <h2 class="col-md-4">配送先登録／一覧</h2>
+    <div class="col-md-8"></div>
+  </div>
+</div>
 
-<table>
+
+<table class="address">
   <thead>
     <tr>
       <th></th>
@@ -16,7 +23,7 @@
       </tr>
       <tr>
         <td>住所</td>
-        <td><%= f.text_field :address, placeholder: "東京都渋谷区代々木神園神園町0-0" %></td>
+        <td><%= f.text_field :address, placeholder: "東京都渋谷区代々木神園神園町0-0", :size => "70" %></td>
       </tr>
       <tr>
         <td>宛名</td>
@@ -28,13 +35,13 @@
 </table>
 
 
-<table>
+<table class="address">
   <thead>
     <tr>
-      <th>郵便番号</th>
-      <th>住所</th>
-      <th>宛名</th>
-      <th colspan="2"></th>
+      <th width="100">郵便番号</th>
+      <th width="400">住所</th>
+      <th width="200">宛名</th>
+      <th colspan="2", class="200"></th>
     </tr>
   </thead>
   <tbody>

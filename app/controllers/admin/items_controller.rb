@@ -5,9 +5,14 @@ class Admin::ItemsController < ApplicationController
   end
 
   def create
-    item = Item.new(item_params)
-    item.save
-    redirect_to admin_item_path(item.id)
+    @item = Item.new(item_params)
+    if item_params[:is_active] == "販売中"
+      @item.is_active = true
+    else
+      @item.is_active = false
+    end
+    @item.save
+    redirect_to admin_item_path(@item.id)
   end
 
   def index
@@ -21,6 +26,7 @@ class Admin::ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
     @genres = Genre.all
+    @item.save
   end
 
   def update
@@ -31,7 +37,7 @@ class Admin::ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:image_id, :name, :introduction, :price, :is_active, :genre_id)
+    params.require(:item).permit(:image, :name, :introduction, :price, :is_active, :genre_id)
   end
 
 end

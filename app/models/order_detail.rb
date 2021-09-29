@@ -5,4 +5,6 @@ class OrderDetail < ApplicationRecord
     製作中: '製作中',
     製作完了: '製作完了'
   }
+  belongs_to :item
+  belongs_to :order
 end

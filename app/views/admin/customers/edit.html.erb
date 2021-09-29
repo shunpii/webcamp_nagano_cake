@@ -1,5 +1,5 @@
 <%= form_with model:@customer, url: admin_customer_path, local:true do |f| %>
-　<h2><%= customer.first_name %><%= customer.last_name %>さんの会員情報編集</h2>
+　<h2><%= @customer.first_name %><%= @customer.last_name %>さんの会員情報編集</h2>
 　<table>
   <thead>
     <tr>
@@ -10,7 +10,7 @@
   <tbody>
     <tr>
       <td>会員ID</td>
-      <td><%= customer.id %></td>
+      <td><%= @customer.id %></td>
     </tr>
     <tr>
       <td>氏名</td>
@@ -38,7 +38,7 @@
     </tr>
     <tr>
       <td>会員ステータス</td>
-      <td><%= f.radio_button :is_deleted, :有効 %>有効<%= f.radio_button :is_deleted, :無効 %>無効</td>
+      <td><%= f.radio_button :is_deleted, true %>有効<%= f.radio_button :is_deleted, false %>無効</td>
     </tr>
   </tbody>
 </table>
