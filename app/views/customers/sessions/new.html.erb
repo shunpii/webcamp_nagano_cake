@@ -1,31 +1,46 @@
-<h2>ログイン</h2>
+<p></p>
+<div class="container">
+  <div class="row">
+    <h2 class="col-md-4">ログイン</h2>
+    <div class="col-md-8"></div>
+  </div>
+</div>
 
-<h4>会員の方はこちらから</h4>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <table>
-    <thead>
-      <tr>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>メールアドレス</td>
-        <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
-      </tr>
-      <tr>
-        <td>パスワード</td>
-        <td><%= f.password_field :password, autocomplete: "current-password" %></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td><%= f.submit "ログイン" %></td>
-      </tr>
-    </tbody>
-  </table>
-<% end %>
+<div class="container">
+  <div class="row">
+    <h4 class="col-md-5">会員の方はこちらから</h4>
+    <div class="col-md-7"></div>
+  </div>
+</div>
 
-<h4>会員登録がお済みでない方</h4>
+<div class="login">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <table>
+      <tbody>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= f.email_field :email, autofocus: true, autocomplete: "email", :size => "50" %></td>
+        </tr>
+        <tr>
+          <td>パスワード</td>
+          <td><%= f.password_field :password, autocomplete: "current-password", :size => "50" %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= f.submit "ログイン", class: "button-blue" %></td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
+</div>
 
-<%= link_to "こちら", new_customer_registration_path %>　から新規登録を行ってください。
+<div class="container">
+  <div class="row">
+    <h4 class="col-md-5">会員登録がお済みでない方</h4>
+    <div class="col-md-7"></div>
+  </div>
+</div>
+
+<div class="login">
+  <%= link_to "こちら", new_customer_registration_path %>　から新規登録を行ってください。
+</div>

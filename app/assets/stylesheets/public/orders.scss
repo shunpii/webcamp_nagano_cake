@@ -1,3 +1,151 @@
 // Place all the styles related to the public/orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.complete-text {
+  text-align: center;
+  padding-top: 200px;
+}
+
+.customer-title, .order-address, .order-payment_method {
+  display: flex;
+}
+
+.button {
+  margin: 0 20px;
+}
+
+.button-green {
+  padding: 5px;
+  background-color: #090;
+  color: #fff;
+  border: none;
+}
+
+.button-blue {
+  padding: 5px;
+  background-color: #136fff;
+  color: #fff;
+  border: none;
+}
+
+.customer-list {
+  margin: 10px 0;
+}
+
+.customer-list-title, .customer-list-text, .order-item, .order-item-cost .order-item-name, .order-item-price,
+.order-item-amount, .order-item-submit, .order-item-shipping_cost, .order-item-sum, .order-item-total, .order-list,
+.order-title-item, .order-title-address, .order-title-total, .order-text, .order-date, .payment-date, .order-item-date {
+  border: solid 1px;
+}
+
+.order-item-name, .order-item-price, .order-item-amount,.order-item-submit, .order-item-shipping_cost,
+.order-item-sum, .order-item-total, .order-title-item, .order-title-address, .order-title-total {
+  background-color: #eee;
+}
+
+.customer-list-title {
+  width: 200px;
+  background-color: #eee;
+}
+
+.customer-list-text {
+  width: 500px;
+}
+
+.list-title {
+  width: 200px;
+}
+
+.order-payment_method, .order-address {
+  margin: 5px 20px;
+}
+
+.order-radio_button {
+  margin: 5px 50px;
+}
+
+.order-item {
+  width: 700px;
+}
+
+.order-item-cost {
+  width: 200px;
+}
+
+.order-payment_method-text, .order-address-text {
+  margin: 30px;
+}
+
+.order-list {
+  width: 1200px;
+  margin: auto;
+}
+
+.order-title-item {
+  width: 200px;
+}
+
+.order-title-address {
+  width: 500px;
+}
+
+.order-title-total {
+  width: 100px;
+}
+
+.order-date {
+  width: 600px;
+}
+
+.payment-date {
+  width: 300px;
+}
+
+.order-item-date {
+  width: 900px;
+}
+
+.order-date-title, .payment-date-title, .item-date-title-item, .item-date-title-price,
+.item-date-title-amount, .item-date-title-subtotal {
+  background-color: #eee;
+}
+
+.order-date-title, .payment-date-title, .item-date-title-item, .item-date-title-price,
+.item-date-title-amount, .item-date-title-subtotal, .order-date-title, .order-date-text,
+.payment-date-title, .payment-date-text, .item-date-title-item, .item-date-title-item,
+.item-date-title-price, .item-date-title-amount, .item-date-title-subtotal, .item-date-text {
+  border: solid 1px;
+}
+
+.order-date-title {
+  width: 150px;
+}
+
+.order-date-text {
+  width: 450px;
+}
+
+.payment-date-title {
+  width: 200px;
+}
+
+.payment-date-text {
+  width: 100px;
+}
+
+.item-date-title-item {
+  width: 500px;
+}
+
+.item-date-title-price {
+  width: 200px;
+}
+
+.item-date-title-amount, .item-date-title-subtotal {
+  width: 100px;
+}
+
+.item-date {
+  margin-top: 10px;
+}

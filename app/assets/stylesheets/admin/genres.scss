@@ -2,15 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.genres {
+.genres, .genre-name {
   margin-top: 50px;
 }
 
 .genre {
   width: 200px;
+  background-color: #eee;
+
 }
 
 .edit, .new, .update, .orders {
   background-color: #00bb00;
   color: #fff;
+}
+
+.genre-name-list {
+  border-top: solid 2px #eee;
+  border-bottom: solid 2px #eee;
 }

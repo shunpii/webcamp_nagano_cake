@@ -14,3 +14,37 @@
  *= require_self
  */
  @import "bootstrap";
+
+header {
+  border-bottom: solid 2px;
+}
+
+.header-list {
+  display: flex;
+}
+
+.header-list-item {
+  margin: 10px 5px;
+  padding: 5px;
+}
+
+footer {
+  border-top: solid 2px;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.signin {
+  margin-left: 150px;
+}
+
+.signin-login, .login {
+  margin-left: 200px;
+}
+
+.signin {
+  text-align: center;
+}

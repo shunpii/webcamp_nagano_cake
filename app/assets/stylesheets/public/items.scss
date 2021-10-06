@@ -1,3 +1,29 @@
 // Place all the styles related to the public/items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.genre-list, .genre-list-title {
+  border: solid 1px;
+}
+
+.genre-list-title {
+  width: 300px;
+  padding: 5px 10px;
+}
+
+.item-list {
+  margin-top: 30px;
+}
+
+.item-list-text {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item-list-item {
+  margin: 10px;
+}
+
+.items-paginate {
+  margin-left: 450px;
+}

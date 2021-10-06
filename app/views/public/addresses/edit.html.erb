@@ -6,29 +6,25 @@
   </div>
 </div>
 
-<table class="address">
-  <thead>
-    <tr>
-      <th ></th>
-      <th colspan="2"></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= form_with model:@address, url: public_address_path, local:true do |f| %>
-      <tr>
-        <td>郵便番号(ハイフンなし)</td>
-        <td><%= f.text_field :postal_code %></td>
-      </tr>
-      <tr>
-        <td>住所</td>
-        <td><%= f.text_field :address, :size => "70" %></td>
-      </tr>
-      <tr>
-        <td>宛名</td>
-        <td><%= f.text_field :name %></td>
-        <td><%= f.submit "変更内容を保存" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="address-edit">
+  <table class="address">
+    <tbody>
+      <%= form_with model:@address, url: public_address_path, local:true do |f| %>
+        <tr>
+          <td>郵便番号(ハイフンなし)</td>
+          <td><%= f.text_field :postal_code %></td>
+        </tr>
+        <tr>
+          <td>住所</td>
+          <td><%= f.text_field :address, :size => "70" %></td>
+        </tr>
+        <tr>
+          <td>宛名</td>
+          <td><%= f.text_field :name %></td>
+          <td><%= f.submit "変更内容を保存", class: "button-green" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+

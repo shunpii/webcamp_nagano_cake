@@ -1,20 +1,27 @@
 class Public::CustomersController < ApplicationController
   def show
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
   end
 
   def edit
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
     @customer.save
   end
 
   def update
-    customer = Customer.find(params[:id])
+    customer = current_customer
     customer.update(customer_params)
-    redirect_to public_customer_path(current_customer.id)
+    redirect_to public_customers_path
   end
 
   def confirm
+  end
+
+  def withdrawal
+    @customer = current_customer
+    @customer.update(is_deleted: false)
+    reset_session
+    redirect_to public_homes_top_path
   end
 
   private

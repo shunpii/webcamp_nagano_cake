@@ -6,13 +6,74 @@
   </div>
 </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>商品名</th>
-      <th>単価(税込)</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <table class="order-item">
+        <thead>
+          <tr>
+            <th class="order-item-name">商品名</th>
+            <th class="order-item-price">単価(税込)</th>
+            <th class="order-item-amount">数量</th>
+            <th class="order-item-submit">小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @sum = 0 %>
+          <% @cart_items.each do |cart_item| %>
+            <tr>
+              <td class="order-item-text"><%= cart_item.item.name %></td>
+              <td class="order-item-text"><%= cart_item.item.price %></td>
+              <td class="order-item-text"><%= cart_item.amount %></td>
+              <td class="order-item-text"><%= cart_item.subtotal %></td>
+            </tr>
+          <% @sum += cart_item.subtotal %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4">
+      <table class="order-item-cost">
+        <tbody>
+          <tr>
+            <td class="order-item-shipping_cost">送料</td>
+            <td class="order-item-text"><%= @order.shipping_cost %></td>
+          </tr>
+          <tr>
+            <td class="order-item-sum">商品合計</td>
+            <td class="order-item-text"><%= @sum %></td>
+          </tr>
+          <tr>
+            <td class="order-item-total">請求金額</td>
+            <td class="order-item-text"><%= @sum + @order.shipping_cost %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+<%= form_with model: @order, url: public_orders_path, local:true do |f| %>
+  <div class="order-payment_method">
+    <h3>支払方法</h3>
+    <div class="order-payment_method-text"><%= @order.payment_method %></div>
+    <%= f.hidden_field :payment_method, value: @order.payment_method %>
+    <%= f.hidden_field :postal_code, value: @order.postal_code %>
+    <%= f.hidden_field :address, value: @order.address %>
+    <%= f.hidden_field :name, value: @order.name %>
+    <%= f.hidden_field :total_payment, value: @sum + @order.shipping_cost %>
+    <%= f.hidden_field :shipping_cost, value: @order.shipping_cost %>
+  </div>
+
+  <div class="order-address">
+    <h3>お届け先</h3>
+    <div class="order-address-text">〒<%= @order.postal_code %>　<%= @order.address %>  <%= @order.name %></div>
+  </div>
+  <div class="information">
+    <%= f.submit "注文を確定する", class: "button-green" %>
+  </div>
+
+<% end %>

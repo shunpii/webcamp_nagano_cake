@@ -4,17 +4,36 @@
 
 .cart_item {
   margin: auto;
+  margin-bottom: 15px;
+  width: 800px;
 }
 
-.item {
-  width: 300;
+.cart_item-text-price, .cart_item-text-amount, .cart_item-text-subtotal, .cart_item-text-delete, .cart_item-text-name, .cart_item,
+.cart_item-name, .cart_item-price, .cart_item-amount, .cart_item-subtotal, .cart_item-text-total, .cart_item-text-sum, .order-item-text {
+  border: solid 1px;
 }
 
+.cart_item-text-name {
+  width: 400;
+}
 
-.price, .amount, .subtotle, .delete {
+.cart_item-text-price, .cart_item-text-amount, .cart_item-text-subtotal, .cart_item-text-delete, .cart_item-text-name, .cart_item-text-total {
+  background-color: #eee;
+
+}
+
+.cart_item-price, .cart_item-amount, .cart_item-subtotal, .cart_item-delete {
   width: 100;
 }
 
 .information {
   text-align: center;
+  margin: 50px 0 ;
+}
+
+.button-red {
+  padding: 5px;
+  background-color: #FF1A6F;
+  color: #fff;
+  border: none;
 }

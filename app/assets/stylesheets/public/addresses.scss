@@ -2,6 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.address {
+.address-list, .address-new {
   margin: auto;
+}
+
+.address-list, .address-list-title, .address-list-text {
+  border: solid 1px;
+}
+
+.address-list-title {
+  background-color: #eee;
+}
+
+.address-edit {
+  margin: 50px;
 }

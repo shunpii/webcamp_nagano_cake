@@ -1,0 +1,46 @@
+<p></p>
+<div class="container">
+  <div class="row">
+    <h2 class="col-md-4">注文履歴一覧</h2>
+    <div class="col-md-8"></div>
+  </div>
+</div>
+
+<div class="order-list">
+  <table>
+    <thead>
+      <tr>
+        <th class="order-title-item">注文日</th>
+        <th class="order-title-address">配送先</th>
+        <th class="order-title-item">注文商品</th>
+        <th class="order-title-total">支払金額</th>
+        <!--<th class="order-title-item">ステータス</th>-->
+        <th class="order-title-item">注文詳細</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td class="order-text"><%= order.created_at.strftime('%Y/%m/%d') %></td>
+          <td class="order-text">
+            <%= order.postal_code %>
+            <%= order.address %>
+            <%= order.name %>
+          </td>
+            <%# binding.pry %>
+          <td class="order-text">
+            <% order.order_details.each do |order_detail| %>
+              <%= order_detail.item.name %>
+            <% end %>
+          </td>
+          <td class="order-text"><%= order.total_payment %>円</td>
+          <!--<td class="order-text"><%#= order.status %></td>-->
+          <td class="order-text">
+            <%= link_to "表示する",  public_order_path(order.id), class: "button-blue" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= paginate @orders %>

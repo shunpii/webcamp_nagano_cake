@@ -14,14 +14,15 @@ Rails.application.routes.draw do
     get 'homes/top'
     get 'homes/about'
     get 'customers/confirm'
-    get 'orders/complete'
-    get 'orders/confirm'
+
     patch 'customers/withdrawal'
     delete 'cart_items/destroy_all'
-    resources :customers, only:[:show, :edit, :update]
+    resource :customers, only:[:show, :edit, :update]
     resources :addresses, only:[:index, :edit, :create, :update, :destroy]
     resources :items, only:[:index, :show]
     resources :cart_items, only:[:index, :update, :create, :destroy]
+    get 'orders/complete' => "orders#complete"
+    post 'orders/confirm' => "orders#confirm"
     resources :orders, only:[:new, :show, :index, :create]
   end
 

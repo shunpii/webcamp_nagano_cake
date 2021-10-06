@@ -3,7 +3,7 @@
   <div class="row">
     <h2 class="col-md-4">ショッピングカート</h2>
     <div class="col-md-4"></div>
-    <div class="col-md-4"><%= link_to "カートを空にする", public_cart_items_destroy_all_path, method: :delete %></div>
+    <div class="col-md-4"><%= button_to "カートを空にする", public_cart_items_destroy_all_path, method: :delete, class: "button-red" %></div>
   </div>
 </div>
 
@@ -12,26 +12,24 @@
 <table class="cart_item">
   <thead>
     <tr>
-      <th colspan="2", class="item">商品名</th>
-      <th class="price">単価（税込）</th>
-      <th colspan="2", class="amount">数量</th>
-      <th class="subtotal">小計</th>
-      <th class="delete"></th>
+      <th class="cart_item-text-name">商品名</th>
+      <th class="cart_item-text-price">単価（税込）</th>
+      <th class="cart_item-text-amount">数量</th>
+      <th class="cart_item-text-subtotal">小計</th>
+      <th class="cart_item-text-delete"></th>
     </tr>
   </thead>
   <tbody>
     <% @sum = 0 %>
     <% @cart_items.each do |cart_item| %>
       <tr>
-        <td></td>
-        <td><%= cart_item.item.name %></td>
-        <td><%= cart_item.item.price %></td>
+        <td class="cart_item-name"><%= cart_item.item.name %></td>
+        <td class="cart_item-price"><%= cart_item.item.price %></td>
         <%= form_with model: cart_item, url: public_cart_item_path(cart_item.id), method: :patch, local: true do |f| %>
-          <td><%= f.number_field :amount ,value: cart_item.amount, :min => 0, :max => 10 %></td>
-          <td><%= f.submit "変更" %></td>
-          <td><%= cart_item.subtotal %></td>
+          <td class="cart_item-amount"><%= f.number_field :amount ,value: cart_item.amount, :min => 0, :max => 10 %> <%= f.submit "変更", class: "button-green" %></td>
+          <td class="cart_item-subtotal"><%= cart_item.subtotal %></td>
         <% end %>
-        <td><%= link_to "削除する", public_cart_item_path(cart_item.id), method: :delete %></td>
+        <td><%= button_to "削除する", public_cart_item_path(cart_item.id), method: :delete, class: "button-red" %></td>
       </tr>
     <% @sum += cart_item.subtotal %>
     <% end %>
@@ -40,14 +38,14 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-4"><%= link_to "買い物を続ける", public_items_path %></div>
+    <div class="col-md-4"><%= button_to "買い物を続ける", public_items_path, method: :get, class: "button-blue" %></div>
     <div class="col-md-4"></div>
     <div class="col-md-4">
       <table>
         <thead>
           <tr>
-            <th>合計金額</th>
-            <th><%= @sum %></th>
+            <th class="cart_item-text-total">合計金額</th>
+            <th class="cart_item-text-sum"><%= @sum %></th>
           </tr>
         </thead>
       </table>
@@ -57,7 +55,8 @@
 
 
 
-
-<div class="information">
-  <%= link_to "情報入力に進む", new_public_order_path %>
-</div>
+<% if @cart_items.exists? %>
+  <div class="information">
+    <%= button_to "情報入力に進む", new_public_order_path, method: :get, class: "button-green" %>
+  </div>
+<% end %>

@@ -1,3 +1,26 @@
 // Place all the styles related to the public/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.about, .about-text {
+  text-align: center;
+}
+
+.about {
+  font-size: 100px;
+  margin: 10px;
+}
+
+.home-item {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.home-item-list {
+  margin: 10px 20px;
+}
+
+.home-text {
+  text-align: center;
+  font-size: 30px;
+}

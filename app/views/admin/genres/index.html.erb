@@ -4,7 +4,7 @@
     <h2 class="col-md-4">ジャンル一覧・追加</h2>
     <div class="col-md-8">
       <%= form_with model:@genre_new, url: admin_genres_path, local:true do |f| %>
-        <p>ジャンル名</p>
+        <p class="genre-name">ジャンル名</p>
         <%= f.text_field :name %>
         <%= f.submit "新規登録", class: "new" %>
       <% end %>
@@ -17,7 +17,7 @@
         </thead>
         <tbody>
           <% @genres.each do |genre| %>
-            <tr>
+            <tr class="genre-name-list">
               <td>
                 <%= genre.name %>
               </td>

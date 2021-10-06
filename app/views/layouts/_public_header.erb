@@ -1,0 +1,23 @@
+
+<div class="container">
+  <p></p>
+  <div class="row">
+    <div class="col-md-3"><%= image_tag 'sweets_shortcake.png', size: '150x100' %></div>
+    <div class="col-md-4"></div>
+    <div class="col-md-5">
+      <div class="header-list">
+        <% if customer_signed_in? %>
+          <div class="header-list-item"><%= button_to "マイページ", public_customers_path(current_customer.id), method: :get %></div>
+          <div class="header-list-item"><%= button_to '商品一覧', public_items_path, method: :get %></div>
+          <div class="header-list-item"><%= button_to 'カート', public_cart_items_path, method: :get %></div>
+          <div class="header-list-item"><%= button_to 'ログアウト', destroy_customer_session_path, method: :delete %></div>
+        <% else %>
+          <div class="header-list-item"><%= button_to 'About', public_homes_about_path, method: :get %></div>
+          <div class="header-list-item"><%= button_to '商品一覧', public_items_path, method: :get %></div>
+          <div class="header-list-item"><%= button_to '新規登録', new_customer_registration_path, method: :get %></div>
+          <div class="header-list-item"><%= button_to 'ログイン', new_customer_session_path, method: :get %></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
